@@ -1,5 +1,18 @@
 // js/main.js
 
+/**
+ * 0: Galaxy
+ * 1: Triangles
+ */
+
+/**
+ * TODO:
+ * customizable speed controller for animation
+ * make triangles not epileptic
+ */
+
+const animationMode = 0;
+
 window.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById("bg");
   if (!canvas) {
@@ -21,14 +34,16 @@ window.addEventListener('DOMContentLoaded', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   // Star geometry
-  const starCount = 30000;
+  const starCount = 50000;
   const positions = new Float32Array(starCount * 3);
   for (let i = 0; i < starCount * 3; i++) {
     positions[i] = THREE.MathUtils.randFloatSpread(100);
   }
 
   const geometry = new THREE.BufferGeometry();
+  const sphere_geometry = new THREE.SphereGeometry();
   geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  sphere_geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
 
   // Shader material with color animation
   const material = new THREE.ShaderMaterial({
@@ -60,7 +75,12 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   const stars = new THREE.Points(geometry, material);
-  scene.add(stars);
+  const sphere = new THREE.Mesh(sphere_geometry, material);
+  if (animationMode == 0) {
+    scene.add(stars);
+  } else if (animationMode == 1) {
+    scene.add(sphere);
+  }
 
   // Animation loop
   const clock = new THREE.Clock();
