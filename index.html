@@ -8,8 +8,37 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.js"></script>
   <script src="./js/background.js" defer></script>
   <script src="./js/typer.js" defer></script>
+  <script>
+    function expandCard(card) {
+      document.querySelectorAll('.project-card.expanded').forEach(c => c.classList.remove('expanded'));
+      card.classList.add('expanded');
+    }
+  </script>
+  <script src="./js/projectModal.js" defer></script>
+
 
 </head>
+
+
+<div id="project-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeProjectModal()">&times;</span>
+    <h3 id="modal-title">Project Title</h3>
+    <div id="modal-media">
+      <iframe id="modal-video" src="" frameborder="0" allowfullscreen></iframe>
+      <a id="modal-pdf" href="#" target="_blank" style="display:none;">View PDF</a>
+      <video id="modal-local-video" loop autoplay muted playsinline style="display: none;">
+        <source src="" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <!-- <iframe id="modal-video" src="" frameborder="0" allowfullscreen></iframe> -->
+    <p id="modal-description">Project description goes here.</p>
+    <div id="modal-tech" class="project-tech"></div>
+  </div>
+</div>
+
+
 <body>
   <header>
     <h1>Joshua Jung</h1>
@@ -27,8 +56,6 @@
     <div class="hero-text">
       <div class="hero-name">Joshua Jung</div>
       <div id="type-target" class="hero-typing"></div>
-      <!-- <h2>Software Engineer</h2> -->
-      <!-- <p>Building elegant, performant, and immersive experiences.</p> -->
     </div>
   </section>
 
@@ -87,13 +114,43 @@
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Sentient Sandbox</h3>
-        <p>VR + natural language + Unity = real-time 3D world editing.</p>
+    <div class="project-scroll">
+      <div class="project-card" onclick="openProjectModal('project1')">
+        <img src="public/project-thumbnails/sentient-sandbox.png" alt="Sentient Sandbox" class="project-thumb" />
+        <div class="project-info">
+          <h3>Sentient Sandbox</h3>
+          <p>A real-time VR world sandbox editor powered by natural language.</p>
+        </div>
       </div>
+
+      <div class="project-card" onclick="openProjectModal('project2')">
+        <img src="public/project-thumbnails/gun.png" alt="Geospatial Upscaling Network" class="project-thumb" />
+        <div class="project-info">
+          <h3>Geospatial Upscaling Network</h3>
+          <p>Investigation in upscaling lo-poly Google Earth Street View</p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openProjectModal('project3')">
+        <img src="public/project-thumbnails/glitch-in-the-simulation.png" alt="Glitch in the Simulation" class="project-thumb" />
+        <div class="project-info">
+          <h3>Glitch in the Simulation</h3>
+          <p>Dance off against a clone of me in game!</p>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openProjectModal('project4')">
+        <img src="public/project-thumbnails/driftcar.png" alt="DriftCar" class="project-thumb" />
+        <div class="project-info">
+          <h3>DriftCar</h3>
+          <p>Machine Learning Race Car!</p>
+        </div>
+      </div>
+  
     </div>
   </section>
+
+
 
   <section id="friends">
     <h2>Friends</h2>
