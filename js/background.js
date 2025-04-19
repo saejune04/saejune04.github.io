@@ -11,7 +11,13 @@
  * make triangles not epileptic
  */
 
-const animationMode = 0;
+const animationMode = 0
+
+const xInput = document.getElementById("xSpeed");
+const yInput = document.getElementById("ySpeed");
+
+let rotationSpeedX = parseFloat(xInput?.value || 0.0003);
+let rotationSpeedY = parseFloat(yInput?.value || 0.002);
 
 window.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById("bg");
@@ -84,13 +90,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Animation loop
   const clock = new THREE.Clock();
+
   function animate() {
     requestAnimationFrame(animate);
     material.uniforms.time.value = clock.getElapsedTime();
-
-    stars.rotation.y += 0.0007;
-    stars.rotation.x += 0.0003;
-
+  
+    // Read slider values (in case they changed)
+    const xInput = document.getElementById("xSpeed");
+    const yInput = document.getElementById("ySpeed");
+    if (xInput && yInput) {
+      rotationSpeedX = parseFloat(xInput.value);
+      rotationSpeedY = parseFloat(yInput.value);
+    }
+  
+    stars.rotation.x += rotationSpeedY;
+    stars.rotation.y += rotationSpeedX;
+  
     renderer.render(scene, camera);
   }
 

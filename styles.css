@@ -88,6 +88,8 @@ section {
     width: 20%;
     display: block;
     height: 100%;
+    z-index: 0;
+    pointer-events: none; /* ensures it doesn't block clicks */
 }
 
 .hero-name {
@@ -143,7 +145,30 @@ section {
     color: #ccc;
 }
   
-
+/* hero slider */
+.hero-controls {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 2;
+    color: #ccc;
+    font-size: 0.9rem;
+  }
+  
+  .hero-controls label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    gap: 1rem;
+  }
+  
+  .hero-controls input[type="range"] {
+    width: 120px;
+  }
 
     
 h2 {
