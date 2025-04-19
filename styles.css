@@ -15,17 +15,29 @@ body {
     overflow-x: hidden;
 }
   
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header */
 header {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background: #111;
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-}
+    z-index: 1000;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  header.visible {
+    transform: translateY(0);
+  }
   
 header h1 {
     font-size: 1.8rem;
@@ -48,10 +60,18 @@ nav a:hover {
     color: #fff;
 }
 
+section {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    scroll-margin-top: 50px; /* Match or slightly exceed your header height */
+    margin: auto;
+}
+
 /* Hero */
 #hero {
     height: 100vh;
     min-width: 100vw;
+    padding-top: 0;
     margin: 0;
     position: relative;
     overflow: hidden;
@@ -124,11 +144,7 @@ nav a:hover {
 }
   
 
-section {
-    padding: 4rem 2rem;
-    max-width: 1000px;
-    margin: auto;
-}
+
     
 h2 {
     font-size: 2.5rem;
@@ -227,7 +243,9 @@ h2 {
     gap: 1.5rem;
     overflow-x: auto;
     padding-bottom: 1rem;
+    padding-top: 1rem;
     scroll-snap-type: x mandatory;
+    perspective: 1000px;
   }
   
   .project-card {
@@ -239,8 +257,11 @@ h2 {
     cursor: pointer;
     scroll-snap-align: start;
     transition: transform 0.3s ease;
+    /* transform-style: preserve-3d; */
+    /* will-change: transform; */
   }
   
+
   .project-card:hover {
     transform: translateY(-5px);
   }
@@ -330,6 +351,35 @@ h2 {
     display: inline-block;
   }
 
+
+/* Fancy scrollbar (WebKit-based browsers) */
+.project-scroll::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  .project-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .project-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, #00bcd4, #008cba);
+    border-radius: 8px;
+  }
+  
+  .project-scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to right, #00e1ff, #00bcd4);
+  }
+  
+  .project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.05) rotateY(1deg);
+    box-shadow: 0 10px 30px rgba(0, 188, 212, 0.2);
+  }
+  
 /* Friends */
 .friends-grid {
     display: grid;
@@ -356,4 +406,15 @@ footer {
     color: #777;
     font-size: 0.9rem;
 }
+  
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   

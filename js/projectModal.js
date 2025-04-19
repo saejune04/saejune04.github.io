@@ -11,14 +11,20 @@ const projectData = {
     description: "",
     tech: ["Numpy", "Numpy"]
   },
-  // Add more projects here
   project3: {
+    title: "Chip8 Emulator",
+    localVideo: "./public/chip8.mp4",
+    description: "",
+    tech: ["Java"]
+  },
+  // Add more projects here
+  project4: {
     title: "Glitch in the Simulation",
     video: "https://youtube.com/embed/u8-hXTWFbCM",
     description: "",
     tech: ["Unity", "Blender"]
   },
-  project4: {
+  project5: {
     title: "DriftCar",
     localVideo: "./public/driftcar.mp4",
     description: "",
