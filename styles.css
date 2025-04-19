@@ -199,6 +199,47 @@ h2 {
     color: #00bcd4;
     text-decoration: none;
 }
+
+.links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .link-button {
+    display: flex;
+    align-items: center;       /* This vertically centers icon + text */
+    gap: 0.5rem;
+    background-color: #252525;
+    color: #00bcd4;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    box-shadow: 0 0 8px rgba(0, 188, 212, 0.2);
+    transition: background 0.2s, transform 0.2s;
+    line-height: 1.2;
+  }
+  .link-button img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* if needed for white color */
+    position: relative;
+    top: 3px; /* move it down a little */
+  }
+
+  .link-button:hover {
+    background-color: #00bcd4;
+    color: #0f0f0f;
+    transform: translateY(-2px);
+  }
+  
+  .link-button img {
+    width: 20px;
+    height: 20px;
+  }
   
 
 /* Timeline Section */
