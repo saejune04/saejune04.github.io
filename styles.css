@@ -14,10 +14,6 @@ body {
     /* width: 100vw; */
     overflow-x: hidden;
 }
-  
-html {
-    scroll-behavior: smooth;
-}
 
 /* Header */
 header {
@@ -63,7 +59,7 @@ nav a:hover {
 section {
     padding: 4rem 2rem;
     max-width: 1000px;
-    scroll-margin-top: 50px; /* Match or slightly exceed your header height */
+    scroll-margin-top: 60px; /* Match or slightly exceed header height */
     margin: auto;
 }
 
@@ -414,6 +410,7 @@ h2 {
     border-radius: 8px;
     font-size: 0.8rem;
     margin-right: 0.5rem;
+    margin-top: 1rem;
     display: inline-block;
   }
 

@@ -1,16 +1,16 @@
 // js/main.js
 
-/**
- * 0: Galaxy
- * 1: Triangles
- */
 
 /**
  * TODO:
  * customizable speed controller for animation
  * make triangles not epileptic
- */
+*/
 
+/**
+ * 0: Galaxy
+ * 1: Triangles
+ */
 const animationMode = 0
 
 const xInput = document.getElementById("xSpeed");

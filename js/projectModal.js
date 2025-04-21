@@ -2,22 +2,21 @@ const projectData = {
   project1: {
     title: "Sentient Sandbox",
     video: "https://www.youtube.com/embed/325YhBNQv1o",
-    description: "VR + natural language + Unity = real-time 3D world editing.",
+    description: "Built with Unity and integrated with OpenAI’s language models, Sentient Sandbox allows users to modify 3D environments through conversational commands. The system interprets spatial language to identify specific objects and applies collision-aware transformations.",
     tech: ["Unity", "Three.js", "OpenAI", "Meta Quest 3"]
   },
   project2: {
     title: "Geospatial Upscaling Network",
     pdf: "https://github.com/saejune04/Geospatial-Upscaling-Network/blob/main/Geospatial%20Upscaling%20Network.pdf",
     description: "",
-    tech: ["Numpy", "Numpy"]
+    tech: ["Numpy", "Pytorch"]
   },
   project3: {
-    title: "Chip8 Emulator",
+    title: "CHIP-8 Emulator",
     localVideo: "./public/chip8.mp4",
-    description: "",
-    tech: ["Java"]
+    description: "A fully functional emulator for the CHIP-8 virtual machine, built from scratch in Java! Accurately replicates the behavior of the original 1970s-era 8-bit interpreted langauge used for simple games and emulation.",
+    tech: ["Java", "Emulator"]
   },
-  // Add more projects here
   project4: {
     title: "Glitch in the Simulation",
     video: "https://youtube.com/embed/u8-hXTWFbCM",
@@ -27,7 +26,7 @@ const projectData = {
   project5: {
     title: "DriftCar",
     localVideo: "./public/driftcar.mp4",
-    description: "",
+    description: "A 2D top-down car simulation featuring slippery, hard to control drifting physics. I trained a reinforcement learning agent using Double DQN to navigate custom tracks with high precision - often outperforming human players (me and my friends).",
     tech: ["Javascript", "Pytorch", "Numpy"]
   },
 };
